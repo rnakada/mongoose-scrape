@@ -32,7 +32,7 @@ app.set("view engine", "handlebars");
 // Connect to Mongo DB
 // mongoose.connect(MONGODB_URI);
 
-mongoose.connect(MONGODB_URI).then(() => {
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
 console.log("Connected to Database");
 }).catch((err) => {
     console.log("Not Connected to Database ERROR! ", err);
