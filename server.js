@@ -30,7 +30,12 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 // Connect to Mongo DB
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
 
 // Start the server
 app.listen(PORT, () => {
