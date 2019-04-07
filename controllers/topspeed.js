@@ -4,9 +4,9 @@ const db = require("../models");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-router.get("/", (req, res) => {
-    res.render("index");
-});
+// router.get("/", (req, res) => {
+//     res.render("index");
+// });
 
 // GET route for scraping the "Topspeed" website
 router.get("/scrape", (req, res) => {
