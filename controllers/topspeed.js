@@ -9,7 +9,7 @@ const cheerio = require("cheerio");
 // });
 
 // GET route for scraping the "Topspeed" website
-router.get("/scrape", (req, res) => {
+router.get("/", (req, res) => {
 
     axios.get("https://www.topspeed.com/").then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
