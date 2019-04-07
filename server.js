@@ -9,11 +9,9 @@ const routes = require("./controllers/topspeed.js");
 const app = express();
 // Require all models
 
-const PORT = process.env.PORT | 3000;
+const PORT = process.env.PORT || 3000;
 // MongoDB 
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-const MONGODB_URI = "mongodb://heroku_cp8g6lhv:ehvg63oo6i9ddq4sg86t6t7n25@ds133556.mlab.com:33556/heroku_cp8g6lhv";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
@@ -34,7 +32,7 @@ app.set("view engine", "handlebars");
 // Connect to Mongo DB
 // mongoose.connect(MONGODB_URI);
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
+mongoose.connect(MONGODB_URI).then(() => {
 console.log("Connected to Database");
 }).catch((err) => {
     console.log("Not Connected to Database ERROR! ", err);
