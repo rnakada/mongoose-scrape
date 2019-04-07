@@ -14,7 +14,7 @@ const PORT = process.env.PORT | 3000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -32,9 +32,10 @@ app.set("view engine", "handlebars");
 // Connect to Mongo DB
 // mongoose.connect(MONGODB_URI);
 
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
+console.log("Connected to Database");
+}).catch((err) => {
+    console.log("Not Connected to Database ERROR! ", err);
 });
 
 // Start the server
